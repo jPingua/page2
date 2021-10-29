@@ -1,0 +1,80 @@
+.contMob {
+	width: 100%;
+	background-color: #fff;
+}
+.bodyMob {
+	margin-top: 1rem;
+	width: 95%;
+	display: flex;
+	margin: auto;
+	height: 5rem;
+	justify-content: space-between;
+}
+.logoMob {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.menuMob {
+	display: flex;
+	align-items: center;
+}
+.menuListMob {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 50vw;
+	z-index: 200;
+	right: 0;
+	border-radius: 10px 0 0 10px;
+	background-color: #fff;
+	box-shadow: 0px 26px 81px #0000005c;
+	padding: 1rem;
+	right: -100%;
+	transition: right 0.5s linear;
+}
+.userDataMob {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.userListMob {
+	position: absolute;
+	height: auto;
+	width: 40vw;
+	background-color: #fff;
+	top: 100%;
+	right: 100%;
+	padding: 0.5rem;
+	border-radius: 10px;
+	box-shadow: 0px 26px 81px #0000005c;
+}
+.userListMob p {
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0.5rem 0;
+	border-radius: 8px;
+}
+.userListMob p:last-child {
+	margin-top: 1rem;
+	color: #ff002b;
+	background-color: #ffccd5;
+}
+.menuListMob p {
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #333333;
+}
+
+.listElementsMob p {
+	margin: 0;
+	padding: 0.5rem;
+	border-radius: 8px;
+	cursor: pointer;
+	text-align: left;
+}
+.listElementsMob div p {
+	font-size: 0.8rem;
+	text-align: right;
+}

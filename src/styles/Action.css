@@ -1,0 +1,79 @@
+.contAction {
+	width: 80vw;
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	z-index: 100;
+	border-radius: 10px;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	box-shadow: 0px 26px 81px #0000005c;
+	padding: 2rem 1rem;
+	color: #333333;
+}
+.contAction button {
+	height: 2rem;
+	width: 6rem;
+	border: none;
+	border-radius: 8px;
+}
+.contAction button:hover {
+	box-shadow: 0px 0px 16px #366ef150;
+}
+
+.cardAction p {
+	text-align: left;
+	font-weight: 500;
+}
+.scrollAction {
+	height: 30vh;
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: #0670ed #004cff38;
+}
+.scrollAction input {
+	display: none;
+}
+.scrollAction label {
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.scrollAction label :nth-child(2) {
+	opacity: 0;
+}
+.scrollAction input:checked + label {
+	background-color: #eceef1;
+}
+.scrollAction label:hover {
+	background-color: #eceef1;
+}
+.scrollAction input:checked + label :nth-child(2) {
+	opacity: 1;
+}
+
+.cardContAction {
+	display: flex;
+	margin-top: 3rem;
+	height: 5rem;
+}
+
+@media (max-width: 1250px) {
+	.contAction {
+		width: 90vw;
+		left: 5vw;
+		font-size: 0.9rem !important;
+	}
+}
+@media (max-width: 800px) {
+	.contAction {
+		height: auto !important;
+	}
+	.cardContAction {
+		height: auto;
+		flex-direction: column;
+	}
+	.scrollAction {
+		height: 15vh;
+	}
+}
