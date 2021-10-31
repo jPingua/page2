@@ -21,6 +21,9 @@ const styles = makeStyles({
 		margin: 'auto',
 		display: 'flex',
 		columnGap: '2rem',
+		'@media(max-width:800px)': {
+			flexDirection: 'column',
+		},
 	},
 	infoLeft: {
 		flex: '1',
@@ -41,13 +44,24 @@ const styles = makeStyles({
 			fontWeight: '600',
 			color: '#333333',
 			// border: '1px solid black',
+
+			'@media(max-width:800px)': {
+				fontSize: '1.5rem',
+			},
 		},
 		'& p:nth-child(2)': {
 			fontSize: '0.8rem',
 			color: '#366ef1',
 			padding: '0.2rem',
+			'@media(max-width:800px)': {
+				fontSize: '0.7rem',
+				justifyContent: 'center',
+			},
 		},
 		'& p:nth-child(3)': {
+			'@media(max-width:800px)': {
+				justifyContent: 'right',
+			},
 			'& span': {
 				fontSize: '0.8rem',
 				fontWeight: '500',
@@ -60,7 +74,14 @@ const styles = makeStyles({
 				'&:hover': {
 					boxShadow: '0px 0px 16px #fcaf0950',
 				},
+				'@media(max-width:800px)': {
+					fontSize: '0.7rem',
+				},
 			},
+		},
+		'@media(max-width:800px)': {
+			justifyContent: 'space-between',
+			width: '100%',
 		},
 	},
 	infoRight: {
@@ -69,6 +90,15 @@ const styles = makeStyles({
 		alignItems: 'center',
 		columnGap: '1rem',
 		justifyContent: 'flex-end',
+
+		'@media(max-width:800px)': {
+			justifyContent: 'space-between',
+			width: '100%',
+		},
+		'@media(max-width:375px)': {
+			flexWrap: 'wrap',
+			rowGap: '0.5rem',
+		},
 	},
 	create: {
 		'&:hover': {
@@ -116,6 +146,27 @@ const styles = makeStyles({
 		height: 'auto',
 		margin: 'auto',
 		position: 'relative',
+		transformOrigin: '0 0',
+
+		'@media(max-width:1280px)': {
+			width: '95%',
+		},
+		'@media(max-width:1200px)': {
+			transform: 'scale(0.85)',
+		},
+		'@media(max-width:1100px)': {
+			transform: 'scale(0.75)',
+		},
+		'@media(max-width:1000px)': {
+			transform: 'scale(0.70)',
+		},
+		'@media(max-width:900px)': {
+			transform: 'scale(0.66)',
+		},
+		'@media(max-width:800px)': {
+			transform: 'scale(1)',
+			overflow: 'auto',
+		},
 	},
 	head: {
 		'&:first-child div': {
@@ -145,13 +196,14 @@ const styles = makeStyles({
 			display: 'flex',
 			alignItems: 'center',
 			justifyContent: 'space-between',
+			'& span:last-child': {
+				opacity: '0',
+			},
 		},
 		'& input': {
 			display: 'none',
 		},
-		'& label span:last-child': {
-			opacity: '0',
-		},
+
 		'& input:nth-child(1):checked + label': {
 			background: '#ceffcc',
 		},
@@ -196,6 +248,48 @@ const styles = makeStyles({
 				opacity: 0,
 			},
 		},
+		'& button': {
+			border: 'none',
+			padding: '0.3rem',
+			borderRadius: '4px',
+			color: '#707070',
+			backgroundColor: '#fff',
+		},
+		' & input:nth-child(1):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(3):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(5):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(7):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(9):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
 	},
 	staffNames: {
 		height: '80%',
@@ -203,46 +297,214 @@ const styles = makeStyles({
 		scrollbarWidth: 'thin',
 		scrollbarColor: '#0670ed #004cff38',
 	},
-
-	// tb: {
-	// 	width: '100%',
-	// 	borderCollapse: 'separate',
-	// 	borderSpacing: '0rem 1rem',
-	// 	borderRadius: '1rem',
-	// 	color: '#333333',
-	// 	backgroundColor: 'rgba(0, 0, 0, 0)',
-	// 	'& tr': {
-	// 		backgroundColor: '#f4f4f9',
-	// 		cursor: 'pointer',
-	// 		'& td': {
-	// 			backgroundColor: '#fff',
-	// 			padding: '0.5rem',
-	// 			'&:first-of-type': {
-	// 				borderBottomLeftRadius: '1rem',
-	// 				borderTopLeftRadius: '1rem',
-	// 			},
-	// 			'&:last-of-type': {
-	// 				borderTopRightRadius: '1rem',
-	// 				borderBottomRightRadius: '1rem',
-	// 			},
-	// 		},
-	// 		'& th': {
-	// 			border: '1px solid #477eff',
-	// 			padding: '1rem',
-	// 			color: '#fff',
-	// 			fontWeight: '400',
-	// 			background: '#366ef1',
-	// 			'&:first-of-type': {
-	// 				borderBottomLeftRadius: '1rem',
-	// 				borderTopLeftRadius: '1rem',
-	// 			},
-	// 			'&:last-of-type': {
-	// 				borderTopRightRadius: '1rem',
-	// 				borderBottomRightRadius: '1rem',
-	// 			},
-	// 		},
-	// 	},
-	// },
+	deli: {
+		position: 'absolute',
+		width: '150%',
+		height: '180%',
+		top: '50%',
+		left: '50%',
+		backgroundColor: '#fff',
+		boxShadow: '-10px 16px 32px #00000021',
+		zIndex: '100',
+		borderRadius: '10px',
+		'& button': {
+			border: 'none',
+			padding: '0.3rem',
+			borderRadius: '4px',
+			color: '#707070',
+			backgroundColor: '#fff',
+		},
+		'& input': {
+			display: 'none',
+		},
+		'& label': {
+			display: 'flex',
+			padding: '0.7rem',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			'& :nth-child(2)': {
+				opacity: 0,
+			},
+		},
+		'& input:nth-child(1):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(3):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(5):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(7):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(9):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span:nth-child(2)': {
+				opacity: 1,
+			},
+		},
+	},
+	followUp: {
+		position: 'absolute',
+		width: '150%',
+		height: '180%',
+		top: '50%',
+		left: '50%',
+		backgroundColor: '#fff',
+		boxShadow: '-10px 16px 32px #00000021',
+		zIndex: 100,
+		borderRadius: '10px',
+		'& button': {
+			border: 'none',
+			padding: '0.3rem',
+			borderRadius: '4px',
+			color: '#707070',
+			backgroundColor: '#fff',
+		},
+		'& input': {
+			display: 'none',
+		},
+		'& label': {
+			display: 'flex',
+			padding: '0.7rem',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			'& :nth-child(2)': {
+				opacity: 0,
+			},
+		},
+		'& input:nth-child(1):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(3):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(5):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(7):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(9):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(11):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+		'& input:nth-child(13):checked + label': {
+			background: '#eceef1 0% 0% no-repeat padding-box',
+			borderRadius: '10px',
+			'& span': {
+				opacity: 1,
+			},
+		},
+	},
+	dims: {
+		position: 'absolute',
+		width: '180%',
+		top: '50%',
+		left: '100%',
+		zIndex: '100',
+		backgroundColor: '#fff',
+		boxShadow: '-10px 16px 32px #00000021',
+		borderRadius: '10px',
+		padding: '0.5rem',
+		'& button': {
+			border: 'none',
+			padding: '0.3rem',
+			borderRadius: '4px',
+			color: '#707070',
+			backgroundColor: '#fff',
+		},
+		'& input': {
+			width: '25%',
+		},
+	},
+	filter: {
+		width: '40%',
+		height: '70%',
+		position: 'absolute',
+		top: '20%',
+		left: '50%',
+		backgroundColor: '#fff',
+		boxShadow: '0px 26px 81px #0000005c',
+		borderRadius: '10px',
+		zIndex: 100,
+		display: 'flex',
+		padding: '0rem 0.5rem',
+		'@media(max-width:800px)': {
+			width: '95vw',
+			left: '2.5vw',
+		},
+	},
+	filterRight: {
+		flex: 2,
+		borderTopRightRadius: '10px',
+		borderBottomRightRadius: '10px',
+		position: 'relative',
+		'& button': {
+			height: '2rem',
+			width: '5rem',
+			border: 'none',
+			borderRadius: '5px',
+		},
+		'& input': {
+			height: '2rem',
+			fontSize: '0.8rem',
+			padding: '0.5rem',
+			outline: 'none',
+			width: '60%',
+		},
+	},
+	filterLeft: {
+		borderTopLeftRadius: '10px',
+		borderBottomLeftRadius: '10px',
+		flex: 1,
+		color: '#707070',
+		boxShadow: '4px 0px 12px #0000000d',
+	},
 });
 
 const Table = () => {
@@ -553,7 +815,7 @@ const Table = () => {
 							<p onClick={() => setFilter(false)}>CLOSE</p>
 						</div>
 					</div>
-					<div className={'filterRight'}>
+					<div className={classes.filterRight}>
 						<div
 							style={{
 								height: '4rem',
@@ -841,7 +1103,7 @@ const Table = () => {
 										<p>Entered : {data.Entered} Kg</p>
 
 										{dims == index && (
-											<div className={'dims'}>
+											<div className={classes.dims}>
 												<div>
 													<div
 														style={{
@@ -1449,7 +1711,7 @@ const Table = () => {
 											</span>
 										</p>
 										{follow == index && (
-											<div className={'followUp'}>
+											<div className={classes.followUp}>
 												<p style={{ textAlign: 'center' }}>
 													Choose Follow Up Status
 												</p>
@@ -1459,7 +1721,7 @@ const Table = () => {
 														height: '60%',
 														borderTop: '1px solid #E4E4E4',
 													}}
-													className={'staffNames'}
+													className={classes.staffNames}
 												>
 													<input
 														type='radio'
@@ -1801,7 +2063,7 @@ const Table = () => {
 											</span>
 										</p>
 										{deli == index && (
-											<div className={'deli'}>
+											<div className={classes.deli}>
 												<p style={{ textAlign: 'center' }}>
 													Choose Delivery Status
 												</p>
@@ -1811,7 +2073,7 @@ const Table = () => {
 														height: '60%',
 														borderTop: '1px solid #E4E4E4',
 													}}
-													className={'staffNames'}
+													className={classes.staffNames}
 												>
 													<input
 														type='radio'
