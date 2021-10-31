@@ -7,9 +7,247 @@ import 'react-circular-progressbar/dist/styles.css';
 import Action from './Action';
 import NavMob from './NavbarMobile';
 import useWindowDimensions from './Width';
+import { makeStyles } from '@mui/styles';
+import check from '../table/check_box.svg';
+
+const styles = makeStyles({
+	conainer: {
+		width: '95%',
+		margin: 'auto',
+		backgroundColor: '#f4f4f9',
+	},
+	pageInfo: {
+		width: '95%',
+		margin: 'auto',
+		display: 'flex',
+		columnGap: '2rem',
+	},
+	infoLeft: {
+		flex: '1',
+		display: 'flex',
+		alignItems: 'center',
+		height: '5rem',
+		'& p': {
+			flex: 1,
+			textAlign: 'center',
+			/* border: 1px solid black; */
+			height: '100%',
+			display: 'flex',
+			alignItems: 'center',
+			// border: '1px solid black',
+		},
+		'& p:nth-child(1)': {
+			fontSize: '2rem',
+			fontWeight: '600',
+			color: '#333333',
+			// border: '1px solid black',
+		},
+		'& p:nth-child(2)': {
+			fontSize: '0.8rem',
+			color: '#366ef1',
+			padding: '0.2rem',
+		},
+		'& p:nth-child(3)': {
+			'& span': {
+				fontSize: '0.8rem',
+				fontWeight: '500',
+				background: '#fcaf09 0% 0% no-repeat padding-box',
+				color: '#fff',
+				padding: '0.5rem 1rem',
+				/* border: 1px solid black; */
+				marginLeft: '0.5rem',
+				borderRadius: '10px',
+				'&:hover': {
+					boxShadow: '0px 0px 16px #fcaf0950',
+				},
+			},
+		},
+	},
+	infoRight: {
+		flex: '2',
+		display: 'flex',
+		alignItems: 'center',
+		columnGap: '1rem',
+		justifyContent: 'flex-end',
+	},
+	create: {
+		'&:hover': {
+			boxShadow: '0px 0px 16px #366ef150',
+		},
+	},
+	calander: {
+		position: 'absolute',
+		height: 'auto',
+		width: '30vw',
+		backgroundColor: '#fff',
+		right: '0',
+		top: '100%',
+		zIndex: '100',
+		borderRadius: '10px',
+		display: 'flex',
+		padding: '1rem',
+		columnGap: '1rem',
+		'& div': {
+			flex: 1,
+			height: '100%',
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'center',
+			'& label': {
+				display: 'block',
+				fontSize: '0.8rem',
+				fontWeight: '300',
+			},
+		},
+		'@media(max-width:1000px)': {
+			width: 'auto',
+		},
+
+		'@media(max-width:800px)': {
+			flexDirection: 'column',
+			width: 'auto',
+			right: '-400%',
+			rowGap: '1rem',
+		},
+	},
+	table: {
+		width: '95vw',
+		height: 'auto',
+		margin: 'auto',
+		position: 'relative',
+	},
+	head: {
+		'&:first-child div': {
+			backgroundPosition: 'center',
+			backgroundRepeat: 'no-repeat',
+			backgroundSize: 'cover',
+			backgroundImage: `url(${check})`,
+		},
+	},
+	status: {
+		width: '150%',
+		position: 'absolute',
+		boxShadow: '-10px 16px 32px #00000021',
+		display: 'flex',
+		flexDirection: 'column',
+		background: '#fff',
+		top: '50%',
+		left: '100%',
+		padding: '0.5rem',
+		borderRadius: '10px',
+		zIndex: '100',
+		'& label': {
+			textAlign: 'left',
+			padding: '0.5rem',
+			fontSize: '0.9rem',
+			borderRadius: '10px',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+		},
+		'& input': {
+			display: 'none',
+		},
+		'& label span:last-child': {
+			opacity: '0',
+		},
+		'& input:nth-child(1):checked + label': {
+			background: '#ceffcc',
+		},
+		'& input:nth-child(3):checked + label': {
+			background: '#eceef1',
+		},
+		'& input:nth-child(1):checked + label span:last-child': {
+			opacity: 1,
+		},
+		'& input:nth-child(3):checked + label span:last-child': {
+			opacity: 1,
+		},
+		'& button': {
+			border: 'none',
+			padding: '0.3rem',
+		},
+	},
+	staff: {
+		position: 'absolute',
+		width: '150%',
+		top: '50%',
+		left: '50%',
+		padding: '0.5rem',
+		height: '150%',
+		background: '#ffffff 0% 0% no-repeat padding-box',
+		boxShadow: '-10px 16px 32px #00000021',
+		borderRadius: '10px',
+		zIndex: '100',
+		'& input': {
+			display: 'none',
+		},
+		'& label': {
+			display: 'block',
+			margin: '0.2rem 0',
+			textAlign: 'left',
+			fontSize: '0.9rem',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			padding: '0.4rem',
+			'& :nth-child(2)': {
+				opacity: 0,
+			},
+		},
+	},
+	staffNames: {
+		height: '80%',
+		overflowY: 'scroll',
+		scrollbarWidth: 'thin',
+		scrollbarColor: '#0670ed #004cff38',
+	},
+
+	// tb: {
+	// 	width: '100%',
+	// 	borderCollapse: 'separate',
+	// 	borderSpacing: '0rem 1rem',
+	// 	borderRadius: '1rem',
+	// 	color: '#333333',
+	// 	backgroundColor: 'rgba(0, 0, 0, 0)',
+	// 	'& tr': {
+	// 		backgroundColor: '#f4f4f9',
+	// 		cursor: 'pointer',
+	// 		'& td': {
+	// 			backgroundColor: '#fff',
+	// 			padding: '0.5rem',
+	// 			'&:first-of-type': {
+	// 				borderBottomLeftRadius: '1rem',
+	// 				borderTopLeftRadius: '1rem',
+	// 			},
+	// 			'&:last-of-type': {
+	// 				borderTopRightRadius: '1rem',
+	// 				borderBottomRightRadius: '1rem',
+	// 			},
+	// 		},
+	// 		'& th': {
+	// 			border: '1px solid #477eff',
+	// 			padding: '1rem',
+	// 			color: '#fff',
+	// 			fontWeight: '400',
+	// 			background: '#366ef1',
+	// 			'&:first-of-type': {
+	// 				borderBottomLeftRadius: '1rem',
+	// 				borderTopLeftRadius: '1rem',
+	// 			},
+	// 			'&:last-of-type': {
+	// 				borderTopRightRadius: '1rem',
+	// 				borderBottomRightRadius: '1rem',
+	// 			},
+	// 		},
+	// 	},
+	// },
+});
 
 const Table = () => {
 	// const route = useRouter();
+	const classes = styles();
 	const { height, width } = useWindowDimensions();
 	const [editDims, setEditDims] = useState(false);
 	const [editStatus, setEditStatus] = useState('');
@@ -89,13 +327,13 @@ const Table = () => {
 	};
 
 	return (
-		<div className={'container'}>
+		<div className={classes.container}>
 			{ready && width >= 800 && <Navbar />}
 			{ready && width < 800 && <NavMob width={width} />}
 
-			<div className={'pageInfo'}>
+			<div className={classes.pageInfo}>
 				{action && <Action setAction={setAction} data={data} />}
-				<div className={'infoLeft'}>
+				<div className={classes.infoLeft}>
 					<p>Orders</p>
 					{totalChecked > 0 && <p>{totalChecked} ORDER SELECTED</p>}
 					<p>
@@ -109,7 +347,7 @@ const Table = () => {
 						)}
 					</p>
 				</div>
-				<div className={'infoRight'}>
+				<div className={classes.infoRight}>
 					<div style={{ position: 'relative' }}>
 						<span
 							style={{
@@ -140,7 +378,7 @@ const Table = () => {
 							</svg>
 						</span>
 						{calander && (
-							<div className={'calander'}>
+							<div className={classes.calander}>
 								<div>
 									<label htmlFor='calc1'>Starting Date</label>
 									<input type='date' name='calc1' id='calc1' />
@@ -247,7 +485,7 @@ const Table = () => {
 							// link for new create page
 							// onClick={() => route.push('/Create')}
 
-							className={'create'}
+							className={classes.create}
 							style={{
 								height: '2rem',
 								backgroundColor: '#366EF1',
@@ -406,10 +644,10 @@ const Table = () => {
 					</div>
 				</div>
 			)}
-			<div className={'table'}>
-				{width <= 800 && (
+			<div className={classes.table}>
+				{
 					<table cellSpacing='0' className={'tb'}>
-						<tr className={'head'} style={{ marginBottom: '1rem' }}>
+						<tr className={classes.head} style={{ marginBottom: '1rem' }}>
 							<th
 								style={{
 									padding: '0.2rem',
@@ -748,7 +986,7 @@ const Table = () => {
 												</svg>
 											</span>
 											{status == index && (
-												<div className={'status'}>
+												<div className={classes.status}>
 													<input
 														type='radio'
 														value='Paid'
@@ -939,8 +1177,8 @@ const Table = () => {
 											</span>
 										</p>
 										{staff == index && (
-											<div className={'staff'}>
-												<div className='staffNames'>
+											<div className={classes.staff}>
+												<div className={classes.staffNames}>
 													<input
 														type='radio'
 														name='staff'
@@ -1916,9 +2154,9 @@ const Table = () => {
 							);
 						})}
 					</table>
-				)}
+				}
 
-				<div className='tableDiv'>
+				{/* <div className='tableDiv'>
 					<div className='tableDivHeading'>
 						<p className={'table1col'}>
 							<span></span>
@@ -2032,9 +2270,145 @@ const Table = () => {
 									</div>
 								</div>
 								<div className='table4col'>
-									<p>{data.product}</p>
+									<div style={{ border: 'none' }}>
+										<p>{data.product}</p>
+										<p style={{ marginTop: '0.2rem', fontWeight: '400' }}>
+											Qty : {data.qty}
+										</p>
+									</div>
 								</div>
-								<div className='table5col'></div>
+								<div className='table5col'>
+									<p
+										style={{
+											display: 'flex',
+											columnGap: '0.5rem',
+											textAlign: 'left',
+										}}
+									>
+										<span
+											style={{
+												whiteSpace: 'nowrap',
+												overflow: 'hidden',
+												textOverflow: 'ellipsis',
+												width: '5rem',
+											}}
+										>
+											{data.dims}
+										</span>
+										<span>
+											<span
+												onClick={() => setDims(index)}
+												style={{
+													backgroundColor: '#366EF1',
+													padding: '0 0.3rem',
+													borderRadius: '5px',
+												}}
+											>
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													width='7.9'
+													height='7.9'
+													viewBox='0 0 24 24'
+												>
+													<path
+														d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z'
+														fill='#fff'
+													/>
+												</svg>
+											</span>
+										</span>
+									</p>
+									<p>Volumetric : {data.Volume} Kg</p>
+									<p>Entered : {data.Entered} Kg</p>
+
+									{dims == index && (
+										<div className={'dims'}>
+											<div>
+												<div
+													style={{
+														textAlign: 'left',
+														fontSize: '0.8rem',
+														margin: '0.5rem 0',
+													}}
+												>
+													<input
+														type='radio'
+														name=''
+														id=''
+														style={{ margin: 0 }}
+													/>
+													<label htmlFor=''>Use Original Dimensions</label>
+												</div>
+												<div
+													style={{
+														textAlign: 'left',
+														fontSize: '0.8rem',
+														margin: '0.5rem 0',
+													}}
+												>
+													<input
+														type='radio'
+														name=''
+														id=''
+														style={{ margin: 0 }}
+													/>
+													<label htmlFor=''>Add Custom Dimensions</label>
+												</div>
+											</div>
+											<div>
+												<p
+													style={{
+														margin: '0',
+														textAlign: 'left',
+														fontSize: '0.7rem',
+													}}
+												>
+													Dimensions
+												</p>
+												<div style={{ display: 'flex', columnGap: '10%' }}>
+													<input type='text' />
+													<input type='text' />
+													<input type='text' />
+												</div>
+											</div>
+											<div>
+												<p
+													style={{
+														margin: '0',
+														textAlign: 'left',
+														fontSize: '0.7rem',
+														marginTop: '1rem',
+													}}
+												>
+													Volumetric
+												</p>
+												<div style={{ display: 'flex', columnGap: '10%' }}>
+													<input type='text' />
+												</div>
+											</div>
+											<div
+												style={{
+													display: 'flex',
+													columnGap: '1rem',
+													justifyContent: 'center',
+													margin: '0.5rem 0',
+												}}
+											>
+												<button
+													style={{
+														background: '#366EF1 0% 0% no-repeat padding-box',
+														borderRadius: '4px',
+														color: '#fff',
+													}}
+													onClick={() => setDims(-1)}
+												>
+													Done
+												</button>
+												<button onClick={() => setDims(-1)}>Cancel</button>
+											</div>
+										</div>
+									)}
+								</div>
 								<div className='table6col'></div>
 								<div className='table7col'></div>
 								<div className='table8col'></div>
@@ -2046,7 +2420,7 @@ const Table = () => {
 							</div>
 						);
 					})}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

@@ -1,9 +1,189 @@
 import { useEffect, useState } from 'react';
 import Navbar from './Navbar';
-import '../styles/create.module.css';
+// import '../styles/create.module.css';
 import useWindowDimensions from './Width';
 import NavMob from './NavbarMobile';
+import { makeStyles } from '@mui/styles';
+
+const styles = makeStyles({
+	contCreate: {
+		width: '100%',
+		color: '#333333',
+	},
+	headerCreate: {
+		display: 'flex',
+		width: '95%',
+		margin: 'auto',
+		padding: '1rem 0',
+		'& p': {
+			margin: '0',
+			display: 'flex',
+			alignItems: 'center',
+		},
+	},
+	btnCreate: {
+		backgroundColor: '#366ef1',
+		color: '#fff',
+		border: 'none',
+		borderRadius: '8px',
+		height: '2rem',
+		padding: '0 1rem',
+		fontSize: '0.8rem',
+		fontWeight: '600',
+	},
+	dropdownCreate: {
+		position: 'absolute',
+		width: '100%',
+		height: '14rem',
+		top: '105%',
+		left: '0rem',
+		borderRadius: '10px',
+		padding: '0.5rem',
+		backgroundColor: '#fff',
+		boxShadow: '0px 26px 81px #33333350',
+		zIndex: '100',
+		'& button': {
+			border: 'none',
+			color: '#333333',
+			backgroundColor: '#fff',
+			padding: '0.2rem 0.5rem',
+			borderRadius: '4px',
+		},
+	},
+	scrollCreate: {
+		height: '75%',
+		overflowY: 'scroll',
+		scrollbarWidth: 'thin',
+		scrollbarColor: '#0670ed #004cff38',
+		'& input': {
+			display: 'none',
+			'& :checked + label': {
+				backgroundColor: '#eceef1',
+			},
+			'& :checked + label span:last-child': {
+				opacity: 1,
+			},
+		},
+		'& label': {
+			fontSize: '1rem',
+			padding: '0.3rem 0.2rem',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			fontWeight: '400',
+			borderRadius: '4px',
+			'& :hover': {
+				backgroundColor: '#eceef1',
+			},
+			'& span:nth-child(2)': {
+				opacity: 0,
+			},
+		},
+	},
+	bodyCreate: {
+		width: '95%',
+		margin: 'auto',
+	},
+	firstCreate: {
+		width: '100%',
+		padding: '1rem 3rem',
+		backgroundColor: '#fff',
+		borderRadius: '10px',
+		'& :hover': {
+			boxShadow: '0px 26px 81px #33333310',
+		},
+	},
+	form1Create: {
+		width: '70%',
+		'@media (max-width:1200px)': {
+			width: '80%',
+		},
+		'@media (max-width:1000px)': {
+			width: '100%',
+		},
+	},
+	secondCreate: {
+		width: '100%',
+		padding: '1rem 3rem',
+		backgroundColor: '#fff',
+		borderRadius: '10px',
+		margin: '1.5rem 0',
+		'& :hover': {
+			boxShadow: '0px 26px 81px #33333310',
+		},
+	},
+	form2Create: {
+		width: '100%',
+		display: 'flex',
+		columnGap: '1rem',
+		flexWrap: 'wrap',
+	},
+	textCreate: {
+		minWidth: '10rem',
+		flex: 1,
+		minWidth: '15rem',
+		margin: '1rem 0',
+		'& label': {
+			display: 'block',
+			fontSize: '0.8rem',
+		},
+		'& input': {
+			display: 'block',
+			height: '2rem',
+			minWidth: '15rem',
+			/* width: 100%; */
+			border: '1px solid #33333350',
+			outline: 'none',
+			padding: '0.5rem',
+			'& :hover': {
+				border: '1px solid #33333380',
+			},
+			'& ::placeholder': {
+				color: '#33333380',
+			},
+		},
+	},
+	submitCreate: {
+		width: '100%',
+		margin: '1.5rem 0',
+		marginBottom: '3rem',
+		display: 'flex',
+		columnGap: '1rem',
+		justifyContent: 'flex-end',
+		'& button': {
+			border: 'none',
+			height: '2.5rem',
+			fontSize: '1rem',
+			padding: '0 1rem',
+			borderRadius: '8px',
+			backgroundColor: '#f4f4f9',
+		},
+	},
+	form1DivCreate: {
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		columnGap: '0.5rem',
+		display: 'flex',
+		'@media (max-width:800px)': {
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'left',
+			rowGap: '1rem',
+			'& div': {
+				width: '100%',
+			},
+		},
+	},
+	headerLeftCreate: {
+		'@media (max-width:800px)': {
+			flexDirection: 'column',
+			rowGap: '0.5rem',
+		},
+	},
+});
+
 const Create = () => {
+	const classes = styles();
 	const { height, width } = useWindowDimensions();
 	const [role, setRole] = useState(false);
 	const [who, setWho] = useState('Publisher');
@@ -45,10 +225,10 @@ const Create = () => {
 	}, []);
 
 	return (
-		<div className={'contCreate'}>
+		<div className={classes.contCreate}>
 			{ready && width >= 800 && <Navbar />}
 			{ready && width < 800 && <NavMob width={width} />}
-			<div className={'headerCreate'}>
+			<div className={classes.headerCreate}>
 				<p
 					style={{
 						fontSize: '2.5rem',
@@ -60,7 +240,7 @@ const Create = () => {
 					Create Orders
 				</p>
 				<p
-					className={'headerLeftCreate'}
+					className={classes.headerLeftCreate}
 					style={{
 						flex: 1,
 						justifyContent: 'flex-end',
@@ -113,7 +293,7 @@ const Create = () => {
 							</span>
 						</span>
 						{role && (
-							<div className={'dropdownCreate'}>
+							<div className={classes.dropdownCreate}>
 								<p
 									style={{
 										justifyContent: 'center',
@@ -123,7 +303,7 @@ const Create = () => {
 								>
 									Choose Product
 								</p>
-								<div className={'scrollCreate'}>
+								<div className={classes.scrollCreate}>
 									<input
 										type='radio'
 										name='header'
@@ -359,12 +539,12 @@ const Create = () => {
 						)}
 					</p>
 					<p>
-						<button className={'btnCreate'}>New Order</button>
+						<button className={classes.btnCreate}>New Order</button>
 					</p>
 				</p>
 			</div>
-			<div className={'bodyCreate'}>
-				<div className={'firstCreate'}>
+			<div className={classes.bodyCreate}>
+				<div className={classes.firstCreate}>
 					<p
 						style={{ display: 'flex', columnGap: '1rem', alignItems: 'center' }}
 					>
@@ -387,9 +567,9 @@ const Create = () => {
 						</span>
 					</p>
 					<div>
-						<div className={'form1Create'}>
+						<div className={classes.form1Create}>
 							<div
-								className={'form1DivCreate'}
+								className={classes.form1DivCreate}
 								style={{
 									alignItems: 'center',
 									justifyContent: 'space-between',
@@ -398,7 +578,7 @@ const Create = () => {
 								}}
 							>
 								<div
-									className={'firstDivCreate'}
+									className={classes.firstDivCreate}
 									style={{
 										margin: 0,
 										flex: '2',
@@ -454,7 +634,7 @@ const Create = () => {
 										{chooseProd && (
 											<div
 												style={{ height: '16rem' }}
-												className={'dropdownCreate'}
+												className={classes.dropdownCreate}
 											>
 												<p
 													style={{
@@ -466,7 +646,7 @@ const Create = () => {
 													Choose Product
 												</p>
 												<div
-													className={'scrollCreate'}
+													className={classes.scrollCreate}
 													style={{ height: '60%' }}
 												>
 													<input
@@ -814,7 +994,7 @@ const Create = () => {
 						</div>
 					</div>
 				</div>
-				<div className={'secondCreate'}>
+				<div className={classes.secondCreate}>
 					<p
 						style={{ display: 'flex', columnGap: '1rem', alignItems: 'center' }}
 					>
@@ -836,8 +1016,8 @@ const Create = () => {
 							Billing Address
 						</span>
 					</p>
-					<div className={'form2Create'}>
-						<div className={'textCreate'}>
+					<div className={classes.form2Create}>
+						<div className={classes.textCreate}>
 							<label htmlFor='name'>Full Name</label>
 							<input
 								type='text'
@@ -847,7 +1027,7 @@ const Create = () => {
 								onChange={(e) => setName(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='mail'>Email Id</label>
 							<input
 								type='email'
@@ -857,7 +1037,7 @@ const Create = () => {
 								onChange={(e) => setmail(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='num'>Phone No.</label>
 							<input
 								type='tel'
@@ -867,7 +1047,7 @@ const Create = () => {
 								onChange={(e) => setph(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='num2'>
 								Alternate Phone Number {`(Optional)`}
 							</label>
@@ -879,7 +1059,7 @@ const Create = () => {
 								onChange={(e) => setph2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='add'>Address</label>
 							<input
 								type='text'
@@ -889,7 +1069,7 @@ const Create = () => {
 								onChange={(e) => setAdd(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='city'>City</label>
 							<input
 								type='text'
@@ -899,7 +1079,7 @@ const Create = () => {
 								onChange={(e) => setCity(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='pin'>Pin Code</label>
 							<input
 								type='text'
@@ -909,7 +1089,7 @@ const Create = () => {
 								onChange={(e) => setPin(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='state'>State</label>
 							<input
 								type='text'
@@ -921,7 +1101,7 @@ const Create = () => {
 						</div>
 					</div>
 				</div>
-				<div className={'secondCreate'}>
+				<div className={classes.secondCreate}>
 					<p
 						style={{ display: 'flex', columnGap: '1rem', alignItems: 'center' }}
 					>
@@ -954,8 +1134,8 @@ const Create = () => {
 							</label>
 						</span>
 					</p>
-					<div className={'form2Create'}>
-						<div className={'textCreate'}>
+					<div className={classes.form2Create}>
+						<div className={classes.textCreate}>
 							<label htmlFor='name'>Full Name</label>
 							<input
 								type='text'
@@ -966,7 +1146,7 @@ const Create = () => {
 								onChange={(e) => setName2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='mail'>Email Id</label>
 							<input
 								type='email'
@@ -977,7 +1157,7 @@ const Create = () => {
 								onChange={(e) => setmail2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='num'>Phone No.</label>
 							<input
 								type='tel'
@@ -988,7 +1168,7 @@ const Create = () => {
 								onChange={(e) => setph_2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='num2'>
 								Alternate Phone Number {`(Optional)`}
 							</label>
@@ -1001,7 +1181,7 @@ const Create = () => {
 								onChange={(e) => setph22(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='add'>Address</label>
 							<input
 								type='text'
@@ -1012,7 +1192,7 @@ const Create = () => {
 								onChange={(e) => setAdd2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='city'>City</label>
 							<input
 								type='text'
@@ -1023,7 +1203,7 @@ const Create = () => {
 								onChange={(e) => setCity2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='pin'>Pin Code</label>
 							<input
 								type='text'
@@ -1034,7 +1214,7 @@ const Create = () => {
 								onChange={(e) => setPin2(e.target.value)}
 							/>
 						</div>
-						<div className={'textCreate'}>
+						<div className={classes.textCreate}>
 							<label htmlFor='state'>State</label>
 							<input
 								type='text'
@@ -1047,7 +1227,7 @@ const Create = () => {
 						</div>
 					</div>
 				</div>
-				<div className={'submitCreate'}>
+				<div className={classes.submitCreate}>
 					<button>Cancel</button>
 					<button style={{ backgroundColor: '#0670ed', color: '#fff' }}>
 						Create

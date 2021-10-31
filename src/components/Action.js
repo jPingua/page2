@@ -1,6 +1,86 @@
+import { makeStyles } from '@mui/styles';
 import { useEffect, useState } from 'react';
-import '../styles/Action.css';
+// import '../styles/Action.css';
+
+const styles = makeStyles({
+	contAction: {
+		width: '80vw',
+		top: '10vh',
+		position: 'absolute',
+		left: '10vw',
+		zIndex: '100',
+		borderRadius: '10px',
+		background: '#ffffff 0% 0% no-repeat padding-box',
+		boxShadow: '0px 26px 81px #0000005c',
+		padding: '2rem 1rem',
+		color: '#333333',
+		'& button': {
+			height: '2rem',
+			width: '6rem',
+			border: 'none',
+			borderRadius: '8px',
+			'& :hover': {
+				boxShadow: '0px 0px 16px #366ef150',
+			},
+		},
+		'@media(max-width:1250px)': {
+			width: '90vw',
+			left: '5vw',
+			fontSize: '0.9rem !important',
+		},
+		'@media(max-width:800px)': {
+			height: 'auto !important',
+		},
+	},
+	cardAction: {
+		'& p': {
+			textAlign: 'left',
+			fontWeight: 500,
+		},
+	},
+	scrollAction: {
+		height: '30vh',
+		overflowY: 'scroll',
+		scrollbarWidth: 'thin',
+		scrollbarColor: '#0670ed #004cff38',
+		'& input': {
+			display: 'none',
+			'&:checked + label': {
+				backgroundColor: '#eceef1',
+			},
+			'&:checked + label :nth-child(2)': {
+				opacity: 1,
+			},
+		},
+		'& label': {
+			padding: '0.5rem',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-between',
+			'& :nth-child(2)': {
+				opacity: 0,
+			},
+			'&:hover': {
+				backgroundColor: '#eceef1',
+			},
+		},
+		'@media(max-width:800px)': {
+			height: '15vh',
+		},
+	},
+	cardContAction: {
+		display: 'flex',
+		marginTop: '3rem',
+		height: '5rem',
+		'@media(max-width:800px)': {
+			height: 'auto',
+			flexDirection: 'column',
+		},
+	},
+});
+
 const Action = ({ setAction, data }) => {
+	const classes = styles();
 	const [staff, setStaff] = useState('');
 	const [followUp, setFollowUp] = useState('');
 	const [delivery, setDelivery] = useState('');
@@ -38,7 +118,7 @@ const Action = ({ setAction, data }) => {
 
 	return (
 		<div
-			className={'contAction'}
+			className={classes.contAction}
 			style={{ height: `${edit1 || edit2 || edit3 || edit4 ? 80 : 40}vh` }}
 		>
 			<div
@@ -72,14 +152,14 @@ const Action = ({ setAction, data }) => {
 					</button>
 				</p>
 			</div>
-			<div className={'cardContAction'}>
+			<div className={classes.cardContAction}>
 				<div
 					style={{
 						flex: '1',
 						padding: '1rem',
 					}}
 				>
-					<div className={'cardAction'}>
+					<div className={classes.cardAction}>
 						<p style={{ margin: 0 }}>Select Staff</p>
 						<p
 							style={{
@@ -128,7 +208,7 @@ const Action = ({ setAction, data }) => {
 									padding: '0.7rem',
 								}}
 							>
-								<div className={'scrollAction'}>
+								<div className={classes.scrollAction}>
 									<input
 										type='radio'
 										name='staff'
@@ -358,7 +438,7 @@ const Action = ({ setAction, data }) => {
 						padding: '1rem',
 					}}
 				>
-					<div className={'cardAction'}>
+					<div className={classes.cardAction}>
 						<p style={{ margin: 0 }}>Select Follow Up</p>
 						<p
 							style={{
@@ -410,7 +490,7 @@ const Action = ({ setAction, data }) => {
 									padding: '0.7rem',
 								}}
 							>
-								<div className={'scrollAction'}>
+								<div className={classes.scrollAction}>
 									<input
 										type='radio'
 										name='follow'
@@ -650,7 +730,7 @@ const Action = ({ setAction, data }) => {
 						padding: '1rem',
 					}}
 				>
-					<div className={'cardAction'}>
+					<div className={classes.cardAction}>
 						<p style={{ margin: 0 }}>Select Delivery Status</p>
 						<p
 							style={{
@@ -702,7 +782,7 @@ const Action = ({ setAction, data }) => {
 									padding: '0.7rem',
 								}}
 							>
-								<div className={'scrollAction'}>
+								<div className={classes.scrollAction}>
 									<input
 										type='radio'
 										name='delivery'
@@ -943,7 +1023,7 @@ const Action = ({ setAction, data }) => {
 						padding: '1rem',
 					}}
 				>
-					<div className={'cardAction'}>
+					<div className={classes.cardAction}>
 						<p style={{ margin: 0 }}>Payment Status</p>
 						<p
 							style={{
@@ -993,8 +1073,8 @@ const Action = ({ setAction, data }) => {
 									padding: '0.7rem',
 								}}
 							>
-								<div className={'scrollAction'}>
-									<div className={'scrollAction'}>
+								<div className={classes.scrollAction}>
+									<div className={classes.scrollAction}>
 										<input
 											type='radio'
 											name='delivery'

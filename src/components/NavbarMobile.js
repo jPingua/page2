@@ -1,9 +1,95 @@
+import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
-import '../styles/NavMob.css';
-// import noti from '../../public/nav/noti.svg';
-// import wallet from '../../public/nav/wallet.svg';
-// import Image from 'next/dist/client/image';
+import noti from '../nav/noti.svg';
+import wallet from '../nav/wallet.svg';
+
+const styles = makeStyles({
+	contMob: {
+		width: '100%',
+		backgroundColor: '#fff',
+		position: 'relative',
+		top: '-1rem',
+	},
+	bodyMob: {
+		marginTop: '1rem',
+		width: '95%',
+		display: 'flex',
+		margin: 'auto',
+		height: '5rem',
+		justifyContent: 'space-between',
+	},
+	logoMob: {
+		display: 'flex',
+		alignItems: 'center',
+		position: 'relative',
+	},
+	menuMob: {
+		display: 'flex',
+		alignItems: 'center',
+	},
+	menuListMob: {
+		position: 'fixed',
+		top: '0',
+		height: '100vh',
+		width: '50vw',
+		zIndex: '200',
+		right: '0',
+		borderRadius: '10px 0 0 10px',
+		backgroundColor: '#fff',
+		boxShadow: '0px 26px 81px #0000005c',
+		padding: '1rem',
+		right: '-100%',
+		transition: 'right 0.5s linear',
+	},
+	userDataMob: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	userListMob: {
+		position: 'absolute',
+		height: 'auto',
+		width: '40vw',
+		backgroundColor: '#fff',
+		top: '100%',
+		right: '100%',
+		padding: '0.5rem',
+		borderRadius: '10px',
+		boxShadow: '0px 26px 81px #0000005c',
+
+		'& p': {
+			width: '100%',
+			textAlign: 'center',
+			margin: '0',
+			padding: '0.5rem 0',
+			borderRadius: '8px',
+			fontSize: '1.2rem',
+			fontWeight: '400',
+			color: '#333333',
+			'&:last-child': {
+				marginTop: '1rem',
+				color: '#ff002b',
+				backgroundColor: '#ffccd5',
+			},
+		},
+	},
+	listElementsMob: {
+		'& p': {
+			margin: '0',
+			padding: '0.5rem',
+			borderRadius: '8px',
+			cursor: 'pointer',
+			textAlign: 'left',
+		},
+		'& div p': {
+			fontSize: '0.8rem',
+			textAlign: 'right',
+		},
+	},
+});
+
 const NavMob = ({ width }) => {
+	const classes = styles();
 	const [navOpen, setNavOpen] = useState(false);
 	const [user, setUser] = useState(false);
 	const [orders, setOrders] = useState(false);
@@ -30,10 +116,10 @@ const NavMob = ({ width }) => {
 	};
 
 	return (
-		<div className={'contMob'}>
-			<div className={'bodyMob'}>
-				<div className={'logoMob'}>logo here</div>
-				<div className={'menuMob'}>
+		<div className={classes.contMob}>
+			<div className={classes.bodyMob}>
+				<div className={classes.logoMob}>logo here</div>
+				<div className={classes.menuMob}>
 					<svg
 						onClick={() => {
 							setNavOpen(true);
@@ -51,7 +137,7 @@ const NavMob = ({ width }) => {
 						/>
 					</svg>
 				</div>
-				<div id='mobMenuList' className={'menuListMob'}>
+				<div id='mobMenuList' className={classes.menuListMob}>
 					<div
 						style={{
 							textAlign: 'right',
@@ -88,9 +174,9 @@ const NavMob = ({ width }) => {
 									fill={`${user ? '#0670ed' : '#707070'}`}
 								/>
 							</svg>
-							{/* <Image src={noti} /> */}
+							{<img src={noti} />}
 							{user && (
-								<div className={'userListMob'}>
+								<div className={classes.userListMob}>
 									<p>Edit Profile</p>
 									<p>Settings</p>
 									<p>Wallet</p>
@@ -119,10 +205,16 @@ const NavMob = ({ width }) => {
 						</div>
 					</div>
 
-					<div className={'userDataMob'}>
+					<div className={classes.userDataMob}>
 						<p>
-							<span style={{ display: 'flex', alignItems: 'center' }}>
-								<span>{/* <Image src={wallet} /> */}</span>
+							<span
+								style={{
+									display: 'flex',
+									alignItems: 'center',
+									columnGap: '0.5rem',
+								}}
+							>
+								<span>{<img src={wallet} alt='' />}</span>
 								<span
 									style={{
 										color: '#366EF1',
@@ -137,7 +229,7 @@ const NavMob = ({ width }) => {
 						</p>
 					</div>
 
-					<div className={'listElementsMob'}>
+					<div className={classes.listElementsMob}>
 						<p
 							onClick={() => {
 								resetAll();

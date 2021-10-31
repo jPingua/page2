@@ -1,72 +1,3 @@
-.conainer {
-	width: 95%;
-	margin: auto;
-	background-color: #f4f4f9;
-}
-.pageInfo {
-	width: 95%;
-	margin: auto;
-	display: flex;
-	column-gap: 2rem;
-}
-.infoLeft {
-	flex: 1;
-	/* background-color: blue; */
-	display: flex;
-	align-items: center;
-	height: 5rem;
-	/* border: 1px solid black; */
-}
-.infoRight {
-	flex: 2;
-	display: flex;
-	align-items: center;
-	column-gap: 1rem;
-	justify-content: flex-end;
-	/* background-color: blueviolet; */
-}
-.infoLeft p {
-	flex: 1;
-	text-align: center;
-	/* border: 1px solid black; */
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-.infoLeft :nth-child(1) {
-	font-size: 2rem;
-	font-weight: 600;
-	color: #333333;
-}
-.infoLeft :nth-child(2) {
-	font-size: 0.8rem;
-	color: #366ef1;
-	/* border: 1px solid black; */
-	padding: 0.2rem;
-}
-.infoLeft :nth-child(3) span {
-	font-size: 0.8rem;
-	font-weight: 500;
-	background: #fcaf09 0% 0% no-repeat padding-box;
-	color: #fff;
-	padding: 0.5rem 1rem;
-	/* border: 1px solid black; */
-	margin-left: 0.5rem;
-	border-radius: 10px;
-}
-.infoLeft :nth-child(3) span:hover {
-	box-shadow: 0px 0px 16px #fcaf0950;
-}
-.create:hover {
-	box-shadow: 0px 0px 16px #366ef150;
-}
-
-.table {
-	width: 95vw;
-	height: auto;
-	margin: auto;
-	position: relative;
-}
 .tb {
 	width: 100%;
 	border-collapse: separate;
@@ -107,13 +38,6 @@
 	font-weight: 400;
 	background: #366ef1;
 }
-.head:first-child div {
-	/* background-color: red; */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-image: url('/src/table/check_box.svg');
-}
 .tb td {
 	font-size: 0.8rem;
 	text-align: center;
@@ -127,13 +51,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.table1col input[type='checkbox']:checked + label {
-	background-image: url('/src/table/bluecheck.svg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-.status {
+/* .status {
 	width: 150%;
 	position: absolute;
 	box-shadow: -10px 16px 32px #00000021;
@@ -154,15 +72,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-}
+} */
 
-.status label span:last-child {
+/* .status label span:last-child {
 	opacity: 0;
 }
 .status input {
 	display: none;
-}
-.status input:nth-child(1):checked + label {
+} */
+/* .status input:nth-child(1):checked + label {
 	background: #ceffcc;
 }
 .status input:nth-child(3):checked + label {
@@ -177,9 +95,9 @@
 .status button {
 	border: none;
 	padding: 0.3rem;
-}
+} */
 
-.staff {
+/* .staff {
 	position: absolute;
 	width: 150%;
 	top: 50%;
@@ -196,8 +114,8 @@
 	overflow-y: scroll;
 	scrollbar-width: thin;
 	scrollbar-color: #0670ed #004cff38;
-}
-.staff input {
+} */
+/* .staff input {
 	display: none;
 }
 .staff label {
@@ -209,10 +127,10 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.4rem;
-}
-.staff label :nth-child(2) {
+} */
+/* .staff label :nth-child(2) {
 	opacity: 0;
-}
+} */
 
 .staff :nth-child(1):checked + label,
 .staff :nth-child(3):checked + label,
@@ -361,7 +279,7 @@
 	outline: none;
 	width: 60%;
 }
-.calander {
+/* .calander {
 	position: absolute;
 	height: auto;
 	width: 30vw;
@@ -385,8 +303,8 @@
 .calander div label {
 	display: block;
 	font-size: 0.8rem;
-	font-weight: 300;
-}
+	font-weight: 300; 
+}*/
 
 /* @media (max-width: 1280px) {
 	.table {
@@ -444,7 +362,7 @@
 	}
 } */
 
-.tableDiv {
+/* .tableDiv {
 	width: 100%;
 	height: 10vh;
 }
@@ -545,36 +463,49 @@
 	align-items: center;
 	justify-content: center;
 }
+.table4col {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 .table4col p {
+	margin: 0;
 	display: block;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	word-break: keep-all;
-	word-wrap: unset;
-	width: 4rem;
+	white-space: nowrap;
+	font-size: 0.9rem;
+	font-weight: 600;
+	width: 5rem;
+	text-align: left;
 }
 
+.table5col {
+	position: relative;
+}
 .tableDivRow {
 	margin-bottom: 0.5rem;
 	background-color: #fff;
 	width: 100%;
-
 	border-radius: 8px;
 	display: flex;
 	color: #333333;
 	align-items: center;
+	height: auto;
+	border: 1px solid black;
+	flex-direction: row;
 }
 .tableDivRow div {
 	border-right: 1px solid #f4f4f9;
 	padding: 0.5rem 0.2rem;
-	height: 5rem;
-}
+	height: auto;
+} */
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
 	.calander {
 		width: auto;
 	}
-}
+} */
 @media (max-width: 800px) {
 	.table {
 		transform-origin: 0 0;
@@ -612,12 +543,12 @@
 	.pageInfo {
 		flex-direction: column;
 	}
-	.calander {
+	/* .calander {
 		flex-direction: column;
 		width: auto;
 		right: -400%;
 		row-gap: 1rem;
-	}
+	} */
 }
 @media (max-width: 375px) {
 	.infoRight {

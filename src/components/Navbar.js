@@ -1,11 +1,152 @@
-import '../styles/navbar.css';
-// import Image from 'next/dist/client/image';
-// import user from '../../public/nav/user.svg';
-// import noti from '../../public/nav/noti.svg';
-// import wallet from '../../public/nav/wallet.svg';
+// import '../styles/navbar.css';
+import noti from '../nav/noti.svg';
+import wallet from '../nav/wallet.svg';
 import { useState } from 'react';
+import { makeStyles } from '@mui/styles';
+
+const style = makeStyles({
+	contNav: {
+		width: '100%',
+		backgroundColor: '#fff',
+		position: 'relative',
+		margin: '0',
+		top: '-1rem',
+	},
+	bodyNav: {
+		marginTop: '1rem',
+		width: '95%',
+		display: 'flex',
+		margin: 'auto',
+	},
+	logoNav: {
+		flex: 1,
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	infosNav: {
+		flex: 2,
+		display: 'flex',
+		'& p:nth-child(1)': {
+			textAlign: 'center',
+			flex: 4,
+			display: 'grid',
+			alignItems: 'center',
+		},
+		'& p:nth-child(2)': {
+			textAlign: 'center',
+			flex: 1,
+			display: 'flex',
+			alignItems: 'center',
+		},
+		'& p:nth-child(3)': {
+			textAlign: 'center',
+			flex: 1,
+			display: 'flex',
+			alignItems: 'center',
+			'&:hover > svg path': {
+				fill: '#366ef1',
+			},
+		},
+	},
+	ftrsNav: {
+		flex: 6,
+		display: 'flex',
+		'& p': {
+			flex: 1,
+			textAlign: 'center',
+			fontSize: '0.9rem',
+			padding: '0.3rem 0',
+			borderRadius: '10px',
+			color: '#707070',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			position: 'relative',
+			'&:hover': {
+				color: '#fff !important',
+				backgroundColor: '#366ef1',
+				fill: '#fff',
+				color: '#fff',
+				'& svg': {
+					'& path': {
+						fill: '#fff',
+						color: '#fff',
+					},
+				},
+			},
+
+			'@media(max-width:1200px)': {
+				fontSize: '0.7rem',
+			},
+			'@media(max-width:900px)': {
+				fontSize: '0.6rem',
+			},
+
+			'& svg': {
+				'& path': {
+					fill: '#707070',
+				},
+			},
+		},
+	},
+	dropdownsNav: {
+		background: '#ffffff 0% 0% no-repeat padding-box',
+		boxShadow: '12px 24px 38px #0000001c',
+		position: 'absolute',
+		width: '200%',
+		left: 0,
+		top: '100%',
+		padding: '1rem 1rem',
+		borderRadius: '10px',
+		height: 'auto',
+		zIndex: '100',
+		'& p': {
+			textAlign: 'left',
+			padding: '0.5rem 1rem',
+			margin: '0',
+			display: 'block',
+			fontSize: '0.8rem',
+			fontWeight: 600,
+			'&:hover': {
+				color: '#366ef1 !important',
+				backgroundColor: '#eceef1',
+				cursor: 'pointer',
+			},
+		},
+	},
+	userPanelNav: {
+		position: 'absolute',
+		height: 'auto',
+		width: '10rem',
+		backgroundColor: '#fff',
+		right: 0,
+		top: '100%',
+		fontSize: '0.8rem',
+		borderRadius: '10px',
+		boxShadow: '12px 9px 38px #00000014',
+		zIndex: 100,
+		'& p': {
+			color: '#707070',
+			'&:hover': {
+				backgroundColor: '#eceef1',
+				color: '#366ef1',
+				borderRadius: '10px',
+			},
+			'&:last-child': {
+				border: '1px solid #fff',
+			},
+			'&:last-child:hover': {
+				backgroundColor: '#fff',
+				border: '1px solid #ff002b',
+				color: '#ff002b',
+			},
+		},
+	},
+});
 
 const Navbar = () => {
+	const classes = style();
 	const [fst, setFirst] = useState(false);
 	const [sec, setsec] = useState(false);
 	const [thd, setThd] = useState(false);
@@ -28,10 +169,10 @@ const Navbar = () => {
 	// };
 
 	return (
-		<div className={'contNav'}>
-			<div className={'bodyNav'}>
-				<div className={'logoNav'}>LOGO HERE</div>
-				<div className={'ftrsNav'}>
+		<div className={classes.contNav}>
+			<div className={classes.bodyNav}>
+				<div className={classes.logoNav}>LOGO HERE</div>
+				<div className={classes.ftrsNav}>
 					<p
 						onMouseEnter={() => {
 							setFirst(true);
@@ -54,7 +195,7 @@ const Navbar = () => {
 							Orders
 						</span>
 						{fst && (
-							<div className={'dropdownsNav'}>
+							<div className={classes.dropdownsNav}>
 								<p>&#62; Create Orders</p>
 								<p>&#62; All Orders</p>
 								<p>&#62; Abondend Cart</p>
@@ -85,7 +226,7 @@ const Navbar = () => {
 							Shipments
 						</span>
 						{sec && (
-							<div className={'dropdownsNav'}>
+							<div className={classes.dropdownsNav}>
 								<p>&#62; All Shipments</p>
 								<p>&#62; Shipments Slips</p>
 								<p>&#62; All NDR</p>
@@ -116,7 +257,7 @@ const Navbar = () => {
 							Stores
 						</span>
 						{thd && (
-							<div className={'dropdownsNav'}>
+							<div className={classes.dropdownsNav}>
 								<p>&#62; Warehouses</p>
 								<p>&#62; Products</p>
 								<p>&#62; Inventory</p>
@@ -147,7 +288,7 @@ const Navbar = () => {
 							Staffs
 						</span>
 						{frth && (
-							<div className={'dropdownsNav'}>
+							<div className={classes.dropdownsNav}>
 								<p>&#62; All Members</p>
 								<p>&#62; Role Group</p>
 								<p>&#62; Assign Orders</p>
@@ -176,7 +317,7 @@ const Navbar = () => {
 							Biling
 						</span>
 						{fiv && (
-							<div className={'dropdownsNav'}>
+							<div className={classes.dropdownsNav}>
 								<p>&#62; Shipping Plans</p>
 								<p>&#62; Shipping Rate Calculator</p>
 								<p>&#62; COD Remittance</p>
@@ -185,7 +326,6 @@ const Navbar = () => {
 							</div>
 						)}
 					</p>
-
 					{/* problem here */}
 					<p
 						onMouseEnter={() => {
@@ -211,7 +351,6 @@ const Navbar = () => {
 						</span>
 					</p>
 					{/* problem above */}
-
 					<p
 						onMouseEnter={() => {
 							setSev(true);
@@ -260,10 +399,10 @@ const Navbar = () => {
 						</span>
 					</p>
 				</div>
-				<div className={'infosNav'}>
+				<div className={classes.infosNav}>
 					<p>
 						<span>
-							<span>{/* <img src={wallet} /> */}</span>
+							<span>{<img src={wallet} />}</span>
 							<span
 								style={{
 									color: '#366EF1',
@@ -276,7 +415,7 @@ const Navbar = () => {
 							</span>
 						</span>
 					</p>
-					<p>{/* <Image src={noti} /> */}</p>
+					<p>{<img src={noti} />}</p>
 					<p
 						style={{ position: 'relative' }}
 						onMouseLeave={() => setUser(false)}
@@ -297,7 +436,7 @@ const Navbar = () => {
 							/>
 						</svg>
 						{user && (
-							<div className={'userPanelNav'}>
+							<div className={classes.userPanelNav}>
 								<div
 									style={{
 										display: 'flex',
