@@ -1,8 +1,7 @@
 import {useEffect, useState} from 'react';
-import Navbar from './Navbar';
-// import '../styles/create.module.css';
-import useWindowDimensions from './Width';
-import NavMob from './NavbarMobile';
+import Navbar from '../views/app/Orders/Navbar';
+import useWindowDimensions from '../views/app/Orders/Width';
+import NavMob from '../views/app/Orders/NavbarMobile';
 import {makeStyles} from '@mui/styles';
 
 const styles = makeStyles({
@@ -181,7 +180,6 @@ const styles = makeStyles({
         },
     },
 });
-
 const Create = () => {
     const classes = styles();
     const {height, width} = useWindowDimensions();
@@ -209,7 +207,6 @@ const Create = () => {
     const [state2, setState2] = useState('');
     const [pin2, setPin2] = useState('');
     const [city2, setCity2] = useState('');
-
     const checkAdd = () => {
         var check = document.getElementById('sameAddress');
         console.log(check);
@@ -219,11 +216,9 @@ const Create = () => {
             setSameAdd(false);
         }
     };
-
     useEffect(() => {
         setReady(true);
     }, []);
-
     return (
         <div className={classes.contCreate}>
             {ready && width >= 800 && <Navbar/>}
@@ -317,7 +312,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -351,7 +345,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -385,7 +378,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -419,7 +411,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -453,7 +444,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -487,7 +477,6 @@ const Create = () => {
                                             style={{
                                                 height: '1.2rem',
                                                 width: '1.2rem',
-
                                                 position: 'relative',
                                                 display: 'inline-block',
                                             }}
@@ -662,7 +651,6 @@ const Create = () => {
                                                             style={{
                                                                 height: '1.2rem',
                                                                 width: '1.2rem',
-
                                                                 position: 'relative',
                                                                 display: 'inline-block',
                                                             }}
@@ -696,7 +684,6 @@ const Create = () => {
                                                             style={{
                                                                 height: '1.2rem',
                                                                 width: '1.2rem',
-
                                                                 position: 'relative',
                                                                 display: 'inline-block',
                                                             }}
@@ -796,7 +783,6 @@ const Create = () => {
                                                             style={{
                                                                 height: '1.2rem',
                                                                 width: '1.2rem',
-
                                                                 position: 'relative',
                                                                 display: 'inline-block',
                                                             }}
@@ -830,7 +816,6 @@ const Create = () => {
                                                             style={{
                                                                 height: '1.2rem',
                                                                 width: '1.2rem',
-
                                                                 position: 'relative',
                                                                 display: 'inline-block',
                                                             }}
@@ -1237,5 +1222,4 @@ const Create = () => {
         </div>
     );
 };
-
 export default Create;

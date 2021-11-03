@@ -1,11 +1,11 @@
 import React from "react";
-import './App.css';
+import {renderRoutes} from "react-router-config";
 import {BrowserRouter} from "react-router-dom";
 import {ThemeProvider} from "@mui/material/styles";
 import theme from "./theme";
-import "@fontsource/dm-sans";
 import {routes} from "./routes";
-import {renderRoutes} from "react-router-config";
+import "@fontsource/dm-sans";
+import './styleSheets/App.css';
 
 function App() {
     return (
